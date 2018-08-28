@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission to Mars </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style_mars.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <center><h1>Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p></center>
+        </div>    
+        <div class="row">
+            <div class ="col-md-12">
+                <h2>Latest Mars News</h2>
+                <h4>{{ marsdata.0.news_title }}</h4>
+                <p>{{ marsdata.0.news_lede }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "col-md-8">
+                <h2>Featured Mars Image</h2>
+                <img src="{{ marsdata.1.feat_img }}" alt="Featured Mars Image" width ="100%">
+            </div>
+            <div class = "col-md-4">
+                <h4>Current Weather on Mars</h4>
+                <p>{{ marsdata.2.current_weather }}</p>
+                <!-- And make sure you have the outline around the box-->
+                <br><br><br><br>
+                <h4 class="top_pad">Mars Facts</h4>
+                <p>And here is where the table goes</p>
+            </div>
+        </div>                
+        <br><br>
+        <center><h2><strong>Mars Hemispheres</strong></h2></center>
+        <div class="row">
+                <div class="col-sm-3 col-md-6">
+                    <img src="{{ marsdata.3.Mars_Hemispheres.0.img_url }}" alt="{{ marsdata.3.Mars_Hemispheres.0.title }}" width="98%">
+                </div>
+                <div class="col-sm-3 col-md-6">
+                    <img src="{{ marsdata.3.Mars_Hemispheres.1.img_url }}" alt="{{ marsdata.3.Mars_Hemispheres.1.title }}" width="98%">
+                </div>
+                <div class="col-sm-3 col-md-6" id="down">
+                    <img src="{{ marsdata.3.Mars_Hemispheres.2.img_url }}" alt="{{ marsdata.3.Mars_Hemispheres.2.title }}" width="98%">
+                </div>
+                <div class="col-sm-3 col-md-6" id="down">
+                    <img src="{{ marsdata.3.Mars_Hemispheres.3.img_url }}" alt="{{ marsdata.3.Mars_Hemispheres.3.title }}" width="98%">
+                </div>                  
+            </div>
+    </div>
+                     
+            <!--col-md-12 with H2 says "Latest Mars News"
+                underneath H3 banner that is <marsdata.news_title
+                underneath is <p> with marsdata.news_lede
+            -->
+
+            <!-- col-md-8 with H2 says "Featured Mars Image"
+                then enter the image at 100% width (marsdata.feat_img)
+                then col-md-4
+                outline box with H3 "Current Weather on Mars" then <p>marsdata.current_weather
+            underneath we need H3 "Mars Facts" then table
+            marsdata.Mars_table (this table must be converted to HTML)
+
+            Underneath we will more or less replicate the vizzies part of the last HW
+            First H2 - "Mars Hemispheres"
+
+            then boxes with captions that are marsdata.Mars_Hempisheres[x]["title"] and images Mars_Hemispheres[x]["img_url"]
+
+            -->    
+
+    </div>
+
+</body>
+
+</html>
