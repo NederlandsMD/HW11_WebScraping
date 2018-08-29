@@ -15,7 +15,7 @@ def index():
 @app.route("/scrape")
 def mars_scraper():
     mongo.db.collection.remove({})
-    
+
     mars_data = scrape_mars.scrape()
 
     # news_title, news_p, featured_image_url, mars_weather, df, Mars_Hem
@@ -30,8 +30,8 @@ def mars_scraper():
     weather = {"current_weather": mars_data[3]}
     mongo.db.collection.insert_one(weather)
     
-    #table = {"Mars_table": mars_data[4]}
-    #mongo.db.collection.insert_one(table)
+    table = {"Mars_table": mars_data[4]}
+    mongo.db.collection.insert_one(table)
 
     hemispheres = {"Mars_Hemispheres": mars_data[5]}
     mongo.db.collection.insert_one(hemispheres)

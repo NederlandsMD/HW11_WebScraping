@@ -7,8 +7,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mission to Mars </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style_mars.css">
-</head>
+    <style>
+    .tweet{
+        border: solid 2px black;
+        padding-left: 5px;
+    }
+    
+    .hemi{
+        border: solid 1px black;
+    }
+    figcaption{
+        padding-left: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    h2 {
+        font-weight: bold;
+    }
+    h4 {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    </style>
+
+ </head>
 
 <body>
 
@@ -30,30 +52,48 @@
                 <img src="{{ marsdata.1.feat_img }}" alt="Featured Mars Image" width ="100%">
             </div>
             <div class = "col-md-4">
-                <h4>Current Weather on Mars</h4>
-                <p>{{ marsdata.2.current_weather }}</p>
-                <!-- And make sure you have the outline around the box-->
-                <br><br><br><br>
+                <div class="tweet">
+                    <h4>Current Weather on Mars</h4>
+                    <p>{{ marsdata.2.current_weather }}</p>
+                </div>
+                <br><br>
                 <h4 class="top_pad">Mars Facts</h4>
-                <p>And here is where the table goes</p>
+                <table>
+                    {{ marsdata.3.Mars_table | safe}}
+                </table>
             </div>
         </div>                
         <br><br>
         <center><h2><strong>Mars Hemispheres</strong></h2></center>
         <div class="row">
-                <div class="col-sm-3 col-md-6">
-                    <img src="{{ marsdata.3.Mars_Hemispheres.0.img_url }}" alt="{{ marsdata.3.Mars_Hemispheres.0.title }}" width="98%">
-                </div>
-                <div class="col-sm-3 col-md-6">
-                    <img src="{{ marsdata.3.Mars_Hemispheres.1.img_url }}" alt="{{ marsdata.3.Mars_Hemispheres.1.title }}" width="98%">
-                </div>
-                <div class="col-sm-3 col-md-6" id="down">
-                    <img src="{{ marsdata.3.Mars_Hemispheres.2.img_url }}" alt="{{ marsdata.3.Mars_Hemispheres.2.title }}" width="98%">
-                </div>
-                <div class="col-sm-3 col-md-6" id="down">
-                    <img src="{{ marsdata.3.Mars_Hemispheres.3.img_url }}" alt="{{ marsdata.3.Mars_Hemispheres.3.title }}" width="98%">
-                </div>                  
+            <div class="col-sm-3 col-md-6">
+                <figure class='hemi'>
+                    <img src="{{ marsdata.4.Mars_Hemispheres.0.img_url }}" alt="{{ marsdata.4.Mars_Hemispheres.0.title }}" width="100%">
+                    <figcaption><strong>{{ marsdata.4.Mars_Hemispheres.0.title }}</strong></figcaption> 
+                </figure>
             </div>
+            <div class="col-sm-3 col-md-6">
+                <figure class='hemi'>
+                    <img src="{{ marsdata.4.Mars_Hemispheres.1.img_url }}" alt="{{ marsdata.4.Mars_Hemispheres.1.title }}" width="100%">
+                    <figcaption><strong>{{ marsdata.4.Mars_Hemispheres.1.title }}</strong></figcaption>
+                </figure>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-3 col-md-6" id="down">
+                <figure class='hemi'>
+                    <img src="{{ marsdata.4.Mars_Hemispheres.2.img_url }}" alt="{{ marsdata.4.Mars_Hemispheres.2.title }}" width="100%">
+                    <figcaption><strong>{{ marsdata.4.Mars_Hemispheres.2.title }}</strong></figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-3 col-md-6" id="down">
+                <figure class='hemi'>
+                    <img src="{{ marsdata.4.Mars_Hemispheres.3.img_url }}" alt="{{ marsdata.4.Mars_Hemispheres.3.title }}" width="100%">
+                    <figcaption><strong>{{ marsdata.4.Mars_Hemispheres.3.title }}</strong></figcaption>
+                </figure>
+            </div>                  
+        </div>
     </div>
                      
             <!--col-md-12 with H2 says "Latest Mars News"

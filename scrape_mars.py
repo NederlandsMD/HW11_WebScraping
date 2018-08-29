@@ -16,6 +16,7 @@ def scrape():
     url_1 = "https://mars.nasa.gov/news/"
 
     browser.visit(url_1)
+    time.sleep(2)
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
 
@@ -26,6 +27,7 @@ def scrape():
     url_2 = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
 
     browser.visit(url_2)
+    time.sleep(2)
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
 
@@ -56,6 +58,8 @@ def scrape():
     df = df.rename(columns={0:"Category", 1:"Value"})
     df = df.set_index("Category", drop=True)
     del df.index.name
+    table_data = df.to_html()
+    print(table_data)
 
     # Mars Hemispheres
     Mars_Hem = []
@@ -91,4 +95,4 @@ def scrape():
         browser.click_link_by_partial_text('Back')
 
 
-    return news_title, news_p, featured_image_url, mars_weather, df, Mars_Hem
+    return news_title, news_p, featured_image_url, mars_weather, table_data, Mars_Hem
